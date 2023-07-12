@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   creationTimestamp: null
   labels:
-    run: frontend
+    app: frontend
   name: frontend
 spec:
   containers:
