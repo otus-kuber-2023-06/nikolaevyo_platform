@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: new-app
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/canary-by-header: always
+    nginx.ingress.kubernetes.io/canary-by-header-value: canary
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /canary
+            pathType: Prefix
+            backend:
+              service:
+                name: new-app
+                port:
+                  number: 80
