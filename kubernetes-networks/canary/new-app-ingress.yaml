@@ -4,8 +4,9 @@ metadata:
   name: new-app
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/canary-by-header: always
-    nginx.ingress.kubernetes.io/canary-by-header-value: canary
+    nginx.ingress.kubernetes.io/canary: "true"
+    nginx.ingress.kubernetes.io/canary-by-header: "version"
+    nginx.ingress.kubernetes.io/canary-by-header-value: "2.0"
 spec:
   rules:
     - http:
