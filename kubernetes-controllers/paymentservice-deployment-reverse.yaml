@@ -7,7 +7,10 @@ metadata:
 spec:
   replicas: 3
   strategy:
-    type: Recreate
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
   selector:
     matchLabels:
       app: paymentservice
@@ -18,7 +21,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: goodist/otus-paymentservice:v0.0.2
+          image: goodist/otus-paymentservice:v0.0.1
           env:
             - name: PORT
               value: "50051"
