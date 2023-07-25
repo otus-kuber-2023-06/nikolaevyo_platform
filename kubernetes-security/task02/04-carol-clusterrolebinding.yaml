@@ -8,5 +8,5 @@ roleRef:
   name: read-cluster-only
 subjects:
 - kind: Group
-  name: system:serviceaccounts
+  name: system:serviceaccounts:prometheus
   namespace: prometheus
