@@ -7,6 +7,6 @@ roleRef:
   kind: ClusterRole
   name: read-cluster-only
 subjects:
-- kind: ServiceAccount
-  name: carol
+- kind: Group
+  name: system:serviceaccounts
   namespace: prometheus
