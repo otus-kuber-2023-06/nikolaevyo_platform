@@ -1,0 +1,18 @@
+namespace: hipster-shop
+commonLabels:
+  app: emailservice
+
+resources:
+- ../../base
+
+patches:
+- patch: |
+    ---
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: emailservice
+    spec:
+      replicas: 1
+  target:
+    kind: Deployment
