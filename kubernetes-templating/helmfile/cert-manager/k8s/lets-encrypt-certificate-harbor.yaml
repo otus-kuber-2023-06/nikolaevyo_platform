@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1 
+kind: Certificate 
+metadata:
+  name: lets-encrypt-crt-harbor
+  namespace: cert-manager
+spec:
+  secretName: lets-encrypt-secret
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-staging
+  commonName: charbor.158.160.74.40.nip.io
+  dnsNames:
+  - harbor.158.160.74.40.nip.io

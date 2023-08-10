@@ -1,0 +1,48 @@
+namespace: hipster-shop-prod
+nameSuffix: -prod
+commonLabels:
+  app: emailservice-prod
+
+resources:
+- ../../base
+
+patches:
+- patch: |
+    ---
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: emailservice
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: emailservice-prod
+      template:
+        metadata:
+          labels:
+            app: emailservice-prod
+        spec:
+          containers:
+          - name: server
+            resources:
+              requests:
+                cpu: 200m
+                memory: 128Mi
+              limits:
+                cpu: 500m
+                memory: 256Mi
+  target:
+    kind: Deployment
+- patch: |
+    ---
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: emailservice
+    spec:
+      type: ClusterIP
+      selector:
+        app: emailservice-prod
+  target:
+    kind: Service
