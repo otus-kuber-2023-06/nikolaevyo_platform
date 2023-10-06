@@ -71,11 +71,16 @@ Path   &nbsp;&nbsp;&nbsp;&nbsp;   Type   &nbsp;&nbsp;&nbsp;&nbsp;  Accessor   &n
 
 token/  &nbsp;&nbsp;&nbsp;&nbsp;  token    &nbsp;&nbsp;&nbsp;&nbsp; auth_token_20a23805   &nbsp;&nbsp;&nbsp;&nbsp; token  based credentials   &nbsp;&nbsp;&nbsp;&nbsp; n/a
 
+
+----
+
 #### Чтение секрета
 Key   &nbsp;&nbsp;&nbsp;&nbsp;      Value  
 
 password  &nbsp;&nbsp;&nbsp;&nbsp;  asajkjkahs  
 username  &nbsp;&nbsp;&nbsp;&nbsp;   otus  
+
+----
 
 #### Список авторизации
 
@@ -84,9 +89,13 @@ Path     &nbsp;&nbsp;&nbsp;&nbsp;      Type      &nbsp;&nbsp;&nbsp;&nbsp;    Acc
 kubernetes/ &nbsp;&nbsp;&nbsp;&nbsp;   kubernetes   &nbsp;&nbsp;&nbsp;&nbsp; auth_kubernetes_cbecf336   &nbsp;&nbsp;&nbsp;&nbsp; n/a            &nbsp;&nbsp;&nbsp;&nbsp;            n/a  
 token/   &nbsp;&nbsp;&nbsp;&nbsp;      token       &nbsp;&nbsp;&nbsp;&nbsp;  auth_token_20a23805    &nbsp;&nbsp;&nbsp;&nbsp;     token based credentials   &nbsp;&nbsp;&nbsp;&nbsp; n/a
 
+----
+
 #### Ошибка при записи:
 
 Потому, что права даны только на создать, но не изменить
+
+----
 
 #### Отозвали серт
 
@@ -95,6 +104,8 @@ Key        &nbsp;&nbsp;&nbsp;&nbsp;                Value
 revocation_time       &nbsp;&nbsp;&nbsp;&nbsp;     1696073649  
 revocation_time_rfc3339   &nbsp;&nbsp;&nbsp;&nbsp; 2023-09-30T11:34:09.682377837Z  
 state             &nbsp;&nbsp;&nbsp;&nbsp;         revoked  
+
+----
 
 #### Получаем серт от волта
 
@@ -149,6 +160,7 @@ state             &nbsp;&nbsp;&nbsp;&nbsp;         revoked
 < strict-transport-security: max-age=15724800; includeSubDomains
 <
 <a href="/ui/">Temporary Redirect</a>.
+----
 
 #### autounseal
 
@@ -175,6 +187,7 @@ seal "transit" {
 2023-10-03T18:29:31.796Z [INFO]  core: vault is unsealed
 2023-10-03T18:29:31.796Z [INFO]  core: entering standby mode
 2023-10-03T18:29:31.911Z [INFO]  core: unsealed with stored key
+----
 
 #### lease
 
