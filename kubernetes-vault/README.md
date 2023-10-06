@@ -1,116 +1,106 @@
-Статус подов
-================================================== 
- helm status vault
-NAME: vault
-LAST DEPLOYED: Sun Sep 24 17:06:55 2023
-NAMESPACE: default
-STATUS: deployed
-REVISION: 1
-NOTES:
-Thank you for installing HashiCorp Vault!
+#### Статус подов
+*helm status vault*  
+ NAME: vault
+ LAST DEPLOYED: Sun Sep 24 17:06:55 2023
+ NAMESPACE: default
+ STATUS: deployed
+ REVISION: 1
+ NOTES:
+ Thank you for installing HashiCorp Vault!
+ 
+ Now that you have deployed Vault, you should look over the docs on using
+ Vault with Kubernetes available here:
+ 
+ https://developer.hashicorp.com/vault/docs
+ 
+----
 
-Now that you have deployed Vault, you should look over the docs on using
-Vault with Kubernetes available here:
-
-https://developer.hashicorp.com/vault/docs
-
-
-Your release is named vault. To learn more about the release, try:
-
-  $ helm status vault
-  $ helm get manifest vault
-
-
-================================================
-Ключи
+#### Ключи  
 
 Unseal Key 1: Vze67yymr8CAPqheQC2XxjFq2+8ctAi0/UVrg56eQvM=
 
 Initial Root Token: hvs.lGNILD0masWgY1VvAnVlpojA
 
-Vault initialized with 1 key shares and a key threshold of 1. Please securely
-distribute the key shares printed above. When the Vault is re-sealed,
-restarted, or stopped, you must supply at least 1 of these keys to unseal it
-before it can start servicing requests.
+Vault initialized with 1 key shares and a key threshold of 1. Please securely  
+distribute the key shares printed above. When the Vault is re-sealed,  
+restarted, or stopped, you must supply at least 1 of these keys to unseal it  
+before it can start servicing requests.  
 
-Vault does not store the generated root key. Without at least 1 keys to
-reconstruct the root key, Vault will remain permanently sealed!
+Vault does not store the generated root key. Without at least 1 keys to  
+reconstruct the root key, Vault will remain permanently sealed!  
 
-It is possible to generate new unseal keys, provided you have a quorum of
-existing unseal keys shares. See "vault operator rekey" for more information.
+----
 
-===============================================
-Рыспечатка волта
+#### Рыспечатка волта
 
-Key             Value
----             -----
-Seal Type       shamir
-Initialized     true
-Sealed          false
-Total Shares    1
-Threshold       1
-Version         1.14.0
-Build Date      2023-06-19T11:40:23Z
-Storage Type    consul
-Cluster Name    vault-cluster-ab1504c1
-Cluster ID      6206ed06-bf42-1366-0311-6804ded1dbae
-HA Enabled      true
-HA Cluster      https://vault-0.vault-internal:8201
-HA Mode         active
-Active Since    2023-09-24T17:21:30.276804106Z
-=======================================================
-Залогинились
+Key     &nbsp;&nbsp;&nbsp;&nbsp;       Value  
+Seal Type  &nbsp;&nbsp;&nbsp;&nbsp;  shamir  
+Initialized &nbsp;&nbsp;&nbsp;&nbsp;    true  
+Sealed       &nbsp;&nbsp;&nbsp;&nbsp;   false  
+Total Shares &nbsp;&nbsp;&nbsp;&nbsp;   1  
+Threshold      &nbsp;&nbsp;&nbsp;&nbsp; 1  
+Version       &nbsp;&nbsp;&nbsp;&nbsp;  1.14.0  
+Build Date     &nbsp;&nbsp;&nbsp;&nbsp; 2023-06-19T11:40:23Z  
+Storage Type  &nbsp;&nbsp;&nbsp;&nbsp;  consul  
+Cluster Name  &nbsp;&nbsp;&nbsp;&nbsp;  vault-cluster-ab1504c1  
+Cluster ID    &nbsp;&nbsp;&nbsp;&nbsp;  6206ed06-bf42-1366-0311-6804ded1dbae  
+HA Enabled    &nbsp;&nbsp;&nbsp;&nbsp;  true  
+HA Cluster    &nbsp;&nbsp;&nbsp;&nbsp;  https://vault-0.vault-internal:8201  
+HA Mode      &nbsp;&nbsp;&nbsp;&nbsp;   active  
+Active Since   &nbsp;&nbsp;&nbsp;&nbsp; 2023-09-24T17:21:30.276804106Z  
 
-Success! You are now authenticated. The token information displayed below
-is already stored in the token helper. You do NOT need to run "vault login"
-again. Future Vault requests will automatically use this token.
+----
 
-Key                  Value
----                  -----
-token                hvs.lGNILD0masWgY1VvAnVlpojA
-token_accessor       hZc2Xf3qxJZjwApf6rrpzgL3
-token_duration       ∞
-token_renewable      false
-token_policies       ["root"]
-identity_policies    []
-policies             ["root"]
-=======================================================
-Path      Type     Accessor               Description                Version
-----      ----     --------               -----------                -------
-token/    token    auth_token_20a23805    token based credentials    n/a
-=======================================================
-Чтение секрета
-Key         Value
----         -----
-password    asajkjkahs
-username    otus
-========================================================
-Список авторизации
+#### Залогинились
 
-Path           Type          Accessor                    Description                Version
-----           ----          --------                    -----------                -------
-kubernetes/    kubernetes    auth_kubernetes_cbecf336    n/a                        n/a
-token/         token         auth_token_20a23805         token based credentials    n/a
+Success! You are now authenticated. The token information displayed below   
+is already stored in the token helper. You do NOT need to run "vault login"  
+again. Future Vault requests will automatically use this token.  
 
-=========================================================================================
-Ошибка при записи:
+Key       &nbsp;&nbsp;&nbsp;&nbsp;           Value  
+
+token          &nbsp;&nbsp;&nbsp;&nbsp;      hvs.lGNILD0masWgY1VvAnVlpojA  
+token_accessor  &nbsp;&nbsp;&nbsp;&nbsp;     hZc2Xf3qxJZjwApf6rrpzgL3  
+token_duration    &nbsp;&nbsp;&nbsp;&nbsp;   ∞  
+token_renewable   &nbsp;&nbsp;&nbsp;&nbsp;   false  
+token_policies    &nbsp;&nbsp;&nbsp;&nbsp;   ["root"]  
+identity_policies  &nbsp;&nbsp;&nbsp;&nbsp;  []  
+policies         &nbsp;&nbsp;&nbsp;&nbsp;    ["root"]  
+
+Path   &nbsp;&nbsp;&nbsp;&nbsp;   Type   &nbsp;&nbsp;&nbsp;&nbsp;  Accessor   &nbsp;&nbsp;&nbsp;&nbsp;      &nbsp;&nbsp;&nbsp;&nbsp;      Description      &nbsp;&nbsp;&nbsp;&nbsp;          Version  
+
+token/  &nbsp;&nbsp;&nbsp;&nbsp;  token    &nbsp;&nbsp;&nbsp;&nbsp; auth_token_20a23805   &nbsp;&nbsp;&nbsp;&nbsp; token  based credentials   &nbsp;&nbsp;&nbsp;&nbsp; n/a
+
+#### Чтение секрета
+Key   &nbsp;&nbsp;&nbsp;&nbsp;      Value  
+
+password  &nbsp;&nbsp;&nbsp;&nbsp;  asajkjkahs  
+username  &nbsp;&nbsp;&nbsp;&nbsp;   otus  
+
+#### Список авторизации
+
+Path     &nbsp;&nbsp;&nbsp;&nbsp;      Type      &nbsp;&nbsp;&nbsp;&nbsp;    Accessor     &nbsp;&nbsp;&nbsp;&nbsp;               Description         &nbsp;&nbsp;&nbsp;&nbsp;       Version  
+
+kubernetes/ &nbsp;&nbsp;&nbsp;&nbsp;   kubernetes   &nbsp;&nbsp;&nbsp;&nbsp; auth_kubernetes_cbecf336   &nbsp;&nbsp;&nbsp;&nbsp; n/a            &nbsp;&nbsp;&nbsp;&nbsp;            n/a  
+token/   &nbsp;&nbsp;&nbsp;&nbsp;      token       &nbsp;&nbsp;&nbsp;&nbsp;  auth_token_20a23805    &nbsp;&nbsp;&nbsp;&nbsp;     token based credentials   &nbsp;&nbsp;&nbsp;&nbsp; n/a
+
+#### Ошибка при записи:
 
 Потому, что права даны только на создать, но не изменить
-===========================================================
-Отозвали серт
 
-Key                        Value
----                        -----
-revocation_time            1696073649
-revocation_time_rfc3339    2023-09-30T11:34:09.682377837Z
-state                      revoked
+#### Отозвали серт
 
-=====================================================
-Получаем серт от волта
+Key        &nbsp;&nbsp;&nbsp;&nbsp;                Value  
 
-1. kubectl exec -it vault-0 -- vault write pki_int/issue/example-dot-ru common_name="vault.example.ru" ttl="24h"
+revocation_time       &nbsp;&nbsp;&nbsp;&nbsp;     1696073649  
+revocation_time_rfc3339   &nbsp;&nbsp;&nbsp;&nbsp; 2023-09-30T11:34:09.682377837Z  
+state             &nbsp;&nbsp;&nbsp;&nbsp;         revoked  
 
-2. Создаём ингресс с полученными сертами и ключём
+#### Получаем серт от волта
+
+1. kubectl exec -it vault-0 -- vault write pki_int/issue/example-dot-ru common_name="vault.example.ru" ttl="24h"  
+
+2. Создаём ингресс с полученными сертами и ключём  
 
 3. 
  curl https://vault.example.ru -vk
@@ -160,11 +150,7 @@ state                      revoked
 <
 <a href="/ui/">Temporary Redirect</a>.
 
-
-
-==============================================================
-
-autounseal
+#### autounseal
 
 1. В первом волте включаем транзит секретов
 2. Создаём полиси для авто распечатывания
@@ -189,18 +175,18 @@ seal "transit" {
 2023-10-03T18:29:31.796Z [INFO]  core: vault is unsealed
 2023-10-03T18:29:31.796Z [INFO]  core: entering standby mode
 2023-10-03T18:29:31.911Z [INFO]  core: unsealed with stored key
-======================================================================
-lease
+
+#### lease
 
 1. Включаем плагин для баз данных
 2. Создаём конфиг для подключения к базе с указанием роли
 3. Создаём роль со скриптом создания учётки
-4. Получаем креденшены
+4. Получаем креденшены  
  vault read database/creds/developer-role
-Key                Value
----                -----
-lease_id           database/creds/developer-role/KTsiTAMebMUa0YrZY8Pgf6pM
-lease_duration     1h
-lease_renewable    true
-password           Fr3UnJoFaRnO-DPUdt-2
-username           v-root-develope-80Xw80naHOpDZnGGBI7p-1696449918
+Key       &nbsp;&nbsp;&nbsp;&nbsp;         Value  
+
+lease_id       &nbsp;&nbsp;&nbsp;&nbsp;    database/creds/developer-role/KTsiTAMebMUa0YrZY8Pgf6pM  
+lease_duration    &nbsp;&nbsp;&nbsp;&nbsp; 1h  
+lease_renewable &nbsp;&nbsp;&nbsp;&nbsp;   true  
+password        &nbsp;&nbsp;&nbsp;&nbsp;   Fr3UnJoFaRnO-DPUdt-2  
+username       &nbsp;&nbsp;&nbsp;&nbsp;    v-root-develope-80Xw80naHOpDZnGGBI7p-1696449918  
