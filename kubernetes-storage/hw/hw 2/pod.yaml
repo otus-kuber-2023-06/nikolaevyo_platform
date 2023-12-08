@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  nodeSelector:
+    "kubernetes.io/os": linux
+  containers:
+    - image: nginx
+      name: nginx
+      volumeMounts:
+        - mountPath: /var/www
+          name: iscsi-volume
+  volumes:
+    - name: iscsi-volume
+      iscsi:
+        targetPortal: 10.129.0.12:3260
+        iqn: iqn.2003-01.org.linux-iscsi.cl16lgq25qclp9ao14e3-eluk.x8664:sn.8e01f2869c4d
+        lun: 0
+        readOnly: false
+        fsType: ext4
