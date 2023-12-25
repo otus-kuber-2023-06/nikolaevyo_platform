@@ -25,7 +25,7 @@ def render_template(filename, vars_dict):
     env = Environment(loader=FileSystemLoader('./templates'))
     template = env.get_template(filename)
     yaml_manifest = template.render(vars_dict)
-    json_manifest = yaml.load(yaml_manifest)
+    json_manifest = yaml.safe_load(yaml_manifest)
     return json_manifest
 
 
@@ -72,16 +72,23 @@ def mysql_on_create(body, spec, **kwargs):
         'password': password,
         'database': database})
 
+    backup_pv = render_template('backup-pv.yml.j2', {
+        'name': name})
+    backup_pvc = render_template('backup-pvc.yml.j2', {
+        'name': name,
+        'storage_size': storage_size})
+
     # Определяем, что созданные ресурсы являются дочерними к управляемому CustomResource:
     kopf.append_owner_reference(persistent_volume, owner=body)
     kopf.append_owner_reference(persistent_volume_claim, owner=body)  # addopt
     kopf.append_owner_reference(service, owner=body)
     kopf.append_owner_reference(deployment, owner=body)
+    kopf.append_owner_reference(restore_job, owner=body)
     # ^ Таким образом при удалении CR удалятся все, связанные с ним pv,pvc,svc, deployments
 
     api = kubernetes.client.CoreV1Api()
     # Создаем mysql PV:
-    api.create_persistent_volume(persistent_volume)
+    #api.create_persistent_volume(persistent_volume)
     # Создаем mysql PVC:
     api.create_namespaced_persistent_volume_claim('default', persistent_volume_claim)
     # Создаем mysql SVC:
