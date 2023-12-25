@@ -5,7 +5,7 @@ backup-mysql-instance-job    1/1           4s         3d22h
 restore-mysql-instance-job   1/1           48s        3d22h
 
 
-mysql: [Warning] Using a password on the command line interface can be insecure.
+mysql: [Warning] Using a password on the command line interface can be insecure.  
 +----+-------------+  
 | id | name        |  
 +----+-------------+  
